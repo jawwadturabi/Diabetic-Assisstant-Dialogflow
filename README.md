@@ -1,5 +1,5 @@
 # Introduction
-This is a sample bot which will provide the services to the Diabetic Patients
+This is a sample bot that will provide services to Diabetic Patients
 
 ## Video Demonstration/Interaction
 
