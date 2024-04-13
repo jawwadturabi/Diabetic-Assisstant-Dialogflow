@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Bot</title>
+</head>
+
+<body>
+    <style>
+        df-messenger {
+            --df-messenger-bot-message: #878fac;
+            --df-messenger-button-titlebar-color: #df9b56;
+            --df-messenger-chat-background-color: #fafafa;
+            --df-messenger-font-color: white;
+            --df-messenger-send-icon: #878fac;
+            --df-messenger-user-message: #479b3d;
+        }
+
+        df-messenger-chat-bubble.chat-wrapper[opened="true"] {
+            height: fit-content;
+        }
+    </style>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        //To minimise the height of chatbox
+        $(document).ready(function () {
+            window.addEventListener('dfMessengerLoaded', function (event) {
+                $r1 = document.querySelector("df-messenger");
+                $r2 = $r1.shadowRoot.querySelector("df-messenger-chat");
+                $r3 = $r2.shadowRoot.querySelector("df-messenger-user-input"); //for other mods
+                var sheet = new CSSStyleSheet;
+                // manage box height from here
+                sheet.replaceSync(`div.chat-wrapper[opened="true"] { height: 450px }`);
+                $r2.shadowRoot.adoptedStyleSheets = [sheet];
+            });
+        });
+    </script>
+    <df-messenger intent="WELCOME" chat-title="Diabetic-Assisstant"
+    agent-id="3dd571f2-fe97-43db-8280-7674d340f7d4"
+        language-code="en"></df-messenger>
+</body>
+
+</html>
